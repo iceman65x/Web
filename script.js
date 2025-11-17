@@ -3,7 +3,7 @@ const outputElement = document.getElementById('vysledny-dokument');
 
 // 1. Definovanie Kvalitatívnej Matice a Opatrení priamo v JS
 const KVALITATIVNA_METRIKA = {
-    // Definícia matice z NBÚ 2.0 (kap. 5.3.3) pre zistenie úrovne R. 
+    // Definícia matice pre zistenie úrovne R. 
     // Kľúče: Pravdepodobnosť / Hodnota Následku -> Výsledné Riziko
     MATICA_HODNOTENIA: {
         "Veľmi vysoká": { "Zanedbateľný": "Stredné", "Malý": "Stredné", "Stredný": "Vysoké", "Závažný": "Veľmi vysoké", "Katastrofický": "Veľmi vysoké" },
@@ -12,7 +12,7 @@ const KVALITATIVNA_METRIKA = {
         "Nízka": { "Zanedbateľný": "Veľmi nízke", "Malý": "Nízke", "Stredný": "Stredné", "Závažný": "Stredné", "Katastrofický": "Stredné" },
         "Veľmi nízka": { "Zanedbateľný": "Veľmi nízke", "Malý": "Veľmi nízke", "Stredný": "Nízke", "Závažný": "Nízke", "Katastrofický": "Stredné" }
     },
-    // Požadované akcie ošetrenia (kap. 8.2)
+    // Požadované akcie ošetrenia 
     OPATRENIA: {
         "Veľmi vysoké": "Rozšírené a dodatočné bezpečnostné opatrenia sú bezpodmienečne nutné a je nutné prijať ich bezodkladne. Výkon kľúčových procesov a ďalšia prevádzka systému je podmienená prijatím opatrení.",
         "Vysoké": "Rozšírené a dodatočné bezpečnostné opatrenia sú potrebné a mali by byť prijaté v dohľadnej dobe, ktorú určí vlastník rizika.",
@@ -109,12 +109,11 @@ async function generovatDokument() {
                 pravdepodobnost: pPriProbleme,
                 nasledok: dNastaveny,
                 uroven_rizika: urovenRizika,
-                akcia_opatrenia: KVALITATIVNA_METRIKA.OPATRENIA[urovenRizika] || "N/A - Úroveň rizika je mimo definovanej škály NBÚ."
+                akcia_opatrenia: KVALITATIVNA_METRIKA.OPATRENIA[urovenRizika] || "N/A - Úroveň rizika je mimo definovanej škály."
             });
         }
     });
 
-    // 3. Triedenie rizík od najvyššej po najnižšiu (NBÚ 8.2)
     zisteneRizika.sort((a, b) => 
         KVALITATIVNA_METRIKA.PRIORITY_MAP.indexOf(b.uroven_rizika) - KVALITATIVNA_METRIKA.PRIORITY_MAP.indexOf(a.uroven_rizika)
     );
@@ -124,7 +123,7 @@ async function generovatDokument() {
 
     if (zisteneRizika.length > 0) {
         finalDocument += "### Zistené a ohodnotené scenáre rizík (Vyžadujú Ošetrenie)\n";
-        finalDocument += "Riziká sú zoradené pre ošetrovanie **od najvyššej závažnosti po najnižšiu** (v súlade s požiadavkou kap. 8.2 Metodiky NBÚ).\n";
+        finalDocument += "Riziká sú zoradené pre ošetrovanie **od najvyššej závažnosti po najnižšiu**.\n";
         
         zisteneRizika.forEach((r, index) => {
             finalDocument += `\n=======================================================\n`;
@@ -136,7 +135,7 @@ async function generovatDokument() {
             finalDocument += `-> PRAVDEPODOBNOSŤ (P): ${r.pravdepodobnost}\n`;
             finalDocument += `-> NÁSLEDOK (D): ${r.nasledok}\n`;
             finalDocument += `-> VÝSLEDNÉ RIZIKO (R): **${r.uroven_rizika}**\n\n`;
-            finalDocument += `   AKCIA (NBÚ, kap. 8.2): ${r.akcia_opatrenia}\n`;
+            finalDocument += `   AKCIA: ${r.akcia_opatrenia}\n`;
             finalDocument += `   OŠETRENIE: ${r.odporucanie}\n`;
         });
         finalDocument += `\n=======================================================\n`;
