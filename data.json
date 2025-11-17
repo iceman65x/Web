@@ -1,0 +1,88 @@
+{
+    "uvod": "## Správa o zisteniach z bezpečnostnej previerky\n\nSpráva identifikuje riziká a nedostatky v informačnej bezpečnosti na základe vami poskytnutých údajov. Každé zistenie je priradené k zodpovedajúcej kontrole podľa normy ISO/IEC 27002:2022.\n\n",
+    "sekcia_zistenia_hlavicka": "## Zistené riziká a odporúčania:\n\n",
+    "sekcia_bez_rizik": "## Výsledok:\n\nNeboli identifikované žiadne zistenia na základe vami poskytnutých informácií. Predpokladá sa, že všetky kontroly v rámci tohto dotazníka sú zavedené alebo je riziko akceptované.\n",
+
+    "zistenia": [
+        {
+            "id": "nedostatok_serverovna",
+            "nazov": "Riziko nedostatočnej fyzickej ochrany serverových zariadení",
+            "kod": "7.3",
+            "norma_odkaz": "ISO/IEC 27002:2022, 7.3 Securing offices, rooms and facilities",
+            "norma_pasaz": "Odporúča sa konfigurácia priestorov tak, aby sa predišlo viditeľnosti a počuteľnosti dôverných informácií alebo aktivít z vonkajšej strany. Elektromagnetické tienenie by sa malo zvážiť ako vhodné [cite: 2193], ako aj umiestnenie kritických zariadení mimo dosahu verejnosti[cite: 2191].",
+            "odporucanie": "Zriadiť uzamykateľný, riadne chránený priestor pre IT zariadenia. Tým sa zníži riziko neoprávnenej fyzickej manipulácie a vandalizmu."
+        },
+        {
+            "id": "nedostatok_dimovy_hlasic",
+            "nazov": "Riziko poškodenia IT majetku požiarom",
+            "kod": "7.5",
+            "norma_odkaz": "ISO/IEC 27002:2022, 7.5 Protecting against physical and environmental threats",
+            "norma_pasaz": "Mali by sa implementovať systémy, ktoré dokážu detekovať požiare v ranom štádiu a spustiť alarmy alebo hasiace systémy s cieľom zabrániť poškodeniu úložných médií a súvisiacich systémov na spracovanie informácií.",
+            "odporucanie": "Zabezpečiť inštaláciu a pravidelnú kontrolu dymových/požiarnych hlásičov v priestoroch s kľúčovými IT aktívami a zabezpečiť dostupnosť vhodných hasiacich prostriedkov."
+        },
+        {
+            "id": "nedostatok_bezpecnostne_dvere",
+            "nazov": "Riziko neoprávneného fyzického vstupu",
+            "kod": "7.1 / 7.2",
+            "norma_odkaz": "ISO/IEC 27002:2022, 7.1 Physical security perimeters / 7.2 Physical entry",
+            "norma_pasaz": "Všetky vonkajšie dvere by mali byť primerane chránené pred neoprávneným prístupom pomocou kontrolných mechanizmov (napr. alarmy, zámky)[cite: 2120]. Prístupové body, ako sú doručovacie a nakladacie priestory, by mali byť kontrolované a izolované od zariadení na spracovanie informácií[cite: 2138].",
+            "odporucanie": "Zvážiť inštaláciu certifikovaných bezpečnostných dverí a zavedenie prístupového systému, aby sa minimalizovalo riziko neoprávneného vstupu do chránených priestorov."
+        },
+        {
+            "id": "nedostatok_zalozne_napajanie",
+            "nazov": "Riziko narušenia dostupnosti IT služieb z dôvodu výpadku prúdu",
+            "kod": "7.11",
+            "norma_odkaz": "ISO/IEC 27002:2022, 7.11 Supporting utilities",
+            "norma_pasaz": "Zariadenia na spracovanie informácií by mali byť chránené pred výpadkami prúdu a inými poruchami spôsobenými zlyhaním podporných sietí (utility)[cite: 2390]. Zahrnuté by mali byť UPS a batérie, generátory a konvertory.",
+            "odporucanie": "Zaistiť implementáciu a funkčnosť záložného napájania (UPS) pre všetky kritické IT systémy, aby sa predišlo strate dát a narušeniu dostupnosti služieb pri výpadku elektrickej energie."
+        },
+        {
+            "id": "nedostatok_antivirus",
+            "nazov": "Riziko škodlivého softvéru (malware)",
+            "kod": "8.7",
+            "norma_odkaz": "ISO/IEC 27002:2022, 8.7 Protection against malware",
+            "norma_pasaz": "Mala by sa implementovať ochrana proti škodlivému softvéru a podporiť vhodným povedomím používateľov[cite: 2755]. Mala by sa inštalovať a pravidelne aktualizovať softvér na detekciu a opravu škodlivého softvéru[cite: 2770].",
+            "odporucanie": "Urgentne nasadiť a centralizovať správu antivírusového riešenia na všetkých koncových zariadeniach a serveroch a pravidelne aktualizovať databázy hrozieb."
+        },
+        {
+            "id": "nedostatok_zalohy_offsite",
+            "nazov": "Kritické riziko straty dát v dôsledku neexistencie offsite záloh",
+            "kod": "8.13",
+            "norma_odkaz": "ISO/IEC 27002:2022, 8.13 Information backup",
+            "norma_pasaz": "Zálohy by sa mali uchovávať na bezpečnom a vzdialenom mieste, v dostatočnej vzdialenosti, aby sa predišlo poškodeniu v prípade katastrofy na hlavnom pracovisku[cite: 2958].",
+            "odporucanie": "Implementovať spoľahlivý proces offsite zálohovania (napr. cloudové alebo geograficky oddelené úložisko) a pravidelne testovať obnovu dát v súlade s RPO (Recovery Point Objective)."
+        },
+        {
+            "id": "nedostatok_vpn",
+            "nazov": "Riziko neautorizovaného prístupu k interným sieťam pri vzdialenej práci",
+            "kod": "6.7",
+            "norma_odkaz": "ISO/IEC 27002:2022, 6.7 Remote working",
+            "norma_pasaz": "Požiadavky na bezpečnosť komunikácie by mali zohľadniť potrebu vzdialeného prístupu k systémom organizácie a citlivosť informácií, ktoré sa majú prenášať. Pri vzdialenom prístupe sa odporúča použitie VPN[cite: 3159].",
+            "odporucanie": "Vynútiť, aby bol vzdialený prístup k interným sieťam možný výhradne cez zabezpečené pripojenie VPN, s použitím silného overenia (napr. multi-faktorová autentifikácia)."
+        },
+        {
+            "id": "nedostatok_kamery",
+            "nazov": "Nedostatočný fyzický dohľad/monitoring",
+            "kod": "7.4",
+            "norma_odkaz": "ISO/IEC 27002:2022, 7.4 Physical security monitoring",
+            "norma_pasaz": "Priestory by mali byť monitorované prostredníctvom sledovacích systémov, ktoré môžu zahŕňať strážcov, poplachové systémy a video monitorovacie systémy, ako napríklad CCTV[cite: 2208]. Prístup do budov s kritickými systémami by mal byť nepretržite monitorovaný[cite: 2209].",
+            "odporucanie": "Zvážiť inštaláciu monitorovacieho systému (CCTV) v oblastiach s kritickými aktívami a zabezpečiť riadne zaznamenávanie prístupov (logy) podľa zákona."
+        },
+        {
+            "id": "nedostatok_hesla",
+            "nazov": "Riziko slabých hesiel a kompromitácie identít",
+            "kod": "5.17",
+            "norma_odkaz": "ISO/IEC 27002:2022, 5.17 Authentication information",
+            "norma_pasaz": "Ak sa používajú heslá, mali by byť zvolené silné heslá podľa osvedčených postupov, napríklad: heslá nie sú založené na ničom, čo môže niekto ľahko uhádnuť; používajte ľahko zapamätateľné frázy a snažte sa zahrnúť alfanumerické a špeciálne znaky; heslá majú minimálnu dĺžku[cite: 1090, 1091, 1097, 1098, 1099].",
+            "odporucanie": "Implementovať a vynútiť tématicky špecifickú politiku pre heslá, vyžadujúcu silné heslá (minimálna dĺžka, komplexnosť) a zvážiť multi-faktorovú autentifikáciu (MFA) pre citlivé systémy."
+        },
+        {
+            "id": "nedostatok_audit",
+            "nazov": "Riziko skrytej nezhody/neefektívnosti kontrol",
+            "kod": "5.35",
+            "norma_odkaz": "ISO/IEC 27002:2022, 5.35 Independent review of information security",
+            "norma_pasaz": "Prístup organizácie k riadeniu informačnej bezpečnosti a jeho implementácia vrátane ľudí, procesov a technológií by sa mali nezávisle preverovať v plánovaných intervaloch, alebo keď nastanú významné zmeny[cite: 1773].",
+            "odporucanie": "Zabezpečiť pravidelnú, nezávislú previerku (audit) ISMS alebo bezpečnostných kontrol, aby sa zabezpečila ich trvalá vhodnosť, primeranosť a účinnosť."
+        }
+    ]
+}

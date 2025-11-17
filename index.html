@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISO 27002:2022 Analýza Rizík</title>
+    <style>
+        /* CSS zostáva rovnaké, len pridaná ZELENÁ pre OK stav */
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
+        .otazka { margin-bottom: 10px; padding: 10px; border: 1px solid #ccc; border-radius: 5px; background-color: #ffe0e0; transition: background-color 0.3s; }
+        .otazka.ok { background-color: #e6ffe6; } /* Zelená pre stav OK (žiadny problém) */
+        .otazka label { display: block; font-weight: bold; }
+        #vysledny-dokument { 
+            margin-top: 30px; 
+            padding: 20px; 
+            border: 2px solid #0056b3; 
+            white-space: pre-wrap; 
+            background-color: #f4f8fb;
+            min-height: 100px;
+            font-size: 0.95em;
+        }
+        button { padding: 10px 15px; background-color: #0056b3; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        button:hover { background-color: #004085; }
+    </style>
+</head>
+<body>
+
+    <h1>ISO 27002:2022 Analýza Rizík (Zaškrtnite, ak problém/riziko **EXISTUJE**)</h1>
+
+    <div id="dotaznik">
+        <div class="otazka">
+            <input type="checkbox" id="nedostatok_serverovna">
+            <label for="nedostatok_serverovna">1. Chýba vyhradená a zabezpečená serverovňa/miestnosť na IT zariadenia?</label>
+        </div>
+        
+        <div class="otazka">
+            <input type="checkbox" id="nedostatok_dimovy_hlasic">
+            <label for="nedostatok_dimovy_hlasic">2. V IT priestoroch chýba funkčný dymový/požiarny hlásič a/alebo hasiace zariadenie?</label>
+        </div>
+
+        <div class="otazka">
+            <input type="checkbox" id="nedostatok_bezpecnostne_dvere">
+            <label for="nedostatok_bezpecnostne_dvere">3. Kľúčové priestory (napr. serverovňa, kancelárie) nemajú certifikované bezpečnostné dvere?</label>
+        </div>
+
+        <div class="otazka">
+            <input type="checkbox" id="nedostatok_zalozne_napajanie">
+            <label for="nedostatok_zalozne_napajanie">4. Kľúčové IT systémy nemajú zabezpečené záložné napájanie (UPS, generátor)?</label>
+        </div>
+
+        <div class="otazka">
+            <input type="checkbox" id="nedostatok_antivirus">
+            <label for="nedostatok_antivirus">5. Nie je zavedený centralizovaný systém ochrany proti škodlivému softvéru (antivírus)?</label>
+        </div>
+
+        <div class="otazka">
+            <input type="checkbox" id="nedostatok_zalohy_offsite">
+            <label for="nedostatok_zalohy_offsite">6. Neexistuje pravidelné offsite zálohovanie alebo je vykonávané nepravidelne?</label>
+        </div>
+
+        <div class="otazka">
+            <input type="checkbox" id="nedostatok_vpn">
+            <label for="nedostatok_vpn">7. Vzdialený prístup k IT systémom je povolený aj bez použitia VPN?</label>
+        </div>
+
+        <div class="otazka">
+            <input type="checkbox" id="nedostatok_kamery">
+            <label for="nedostatok_kamery">8. Chýba dohľad (napr. kamerový systém/alarm) v kľúčových fyzických priestoroch?</label>
+        </div>
+
+        <div class="otazka">
+            <input type="checkbox" id="nedostatok_hesla">
+            <label for="nedostatok_hesla">9. Nie sú vynucované silné heslá (napr. minimálne 8 znakov, kombinácia znakov) pre prístup k systémom?</label>
+        </div>
+
+        <div class="otazka">
+            <input type="checkbox" id="nedostatok_audit">
+            <label for="nedostatok_audit">10. Organizácia nevykonáva pravidelnú nezávislú previerku (audit) informačnej bezpečnosti?</label>
+        </div>
+    </div>
+
+    <button onclick="generovatDokument()">Generovať Správu</button>
+
+    <h2>Vygenerovaná Správa o Nedostatkoch</h2>
+    <pre id="vysledny-dokument">Zaškrtnite otázky, kde existuje problém, a kliknite na "Generovať Správu".</pre>
+
+    <script src="script.js"></script>
+</body>
+</html>
