@@ -147,8 +147,30 @@ async function generovatDokument() {
     
     outputElement.textContent = finalDocument;
 }
+//QoL copy funkcion
+async function kopirovatSpravu() {
+    const text = outputElement.textContent;
+    const button = document.getElementById('copy-button');
 
+    try {
+        await navigator.clipboard.writeText(text);
 
+        const povodnyText = button.textContent;
+        button.textContent = "Skopírované ✓";
+
+        setTimeout(() => {
+            button.textContent = povodnyText;
+        }, 1500);
+
+    } catch (error) {
+        console.error("Nepodarilo sa skopírovať správu:", error);
+        button.textContent = "Chyba pri kopírovaní";
+
+        setTimeout(() => {
+            button.textContent = "Kopírovať správu";
+        }, 1500);
+    }
+}
 // Pridanie Event Listeners (inicializácia po načítaní DOM)
 document.addEventListener('DOMContentLoaded', async () => {
     outputElement.textContent = "Systém pripravený. Načítavam dáta rizík...";
